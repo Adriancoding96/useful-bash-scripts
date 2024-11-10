@@ -1,16 +1,16 @@
 #!/bin/bash
 
-
-# Navigation script to check if directory exisits
-# in sub directories of system home directory.
+# Navigation script to check if directory exists
+# in subdirectories of the user's home directory.
 #
-# Script uses DFS to navigate down paths one by one
-# until it reaches the end, if the script recognises
-# the target directory, it terminates script and jumps
+# Script uses DFS to navigate paths one by one
+# until it reaches the end. If the script recognizes
+# the target directory, it terminates the script and jumps
 # the user to the directory.
 # 
 # @param target_dir: directory user wants to jump to
-function  dnav() {
+
+function dnav() {
   start_dir="$HOME"
   target_dir="$1"
 
@@ -33,9 +33,9 @@ function  dnav() {
     done
   done
 
-  if [ -n "$found_path"]; then
+  if [ -n "$found_path" ]; then
     cd "$found_path" || exit
   else
-    echo "Directory '$target_dir' not found on system"
+    echo "Directory '$target_dir' not found in your home directory."
   fi
 }
